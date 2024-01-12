@@ -51,7 +51,7 @@ export default function Chat() {
     if(currentuser.displayName){
       socket.current=io(host)
       socket.current.emit("add-user",currentuser.uid);
-      // console.log(`${currentuser.displayName} connected`)
+      console.log(`${currentuser.displayName} connected`)
       
     //   if (count==0 && currentuser.displayName) {
     //     await axios.post(showaddeduser,{currentuser:currentuser.displayName}).
