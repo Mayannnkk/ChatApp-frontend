@@ -1,0 +1,10 @@
+export const host = "https://chat-app-uhoh.onrender.com";
+export const registerRoute = `${host}/api/auth/register`;
+export const loginroute = `${host}/api/auth/login`;
+export const alluserroutes = `${host}/api/auth/allusers`;
+export const sendmsgroute = `${host}/api/messages/addmsg`;
+export const getallmessageroute = `${host}/api/messages/getmsg`;
+export const clearallchats = `${host}/api/messages/clrmsg`;
+export const addusers = `${host}/api/auth/adduser`;
+export const showaddeduser = `${host}/api/auth/showuser`;
+export const showcurrentuser = `${host}/api/auth/showcurrentuser`;
