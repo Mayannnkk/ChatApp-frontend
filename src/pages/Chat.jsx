@@ -50,7 +50,7 @@ export default function Chat() {
     async function fetchdata(){
     if(currentuser.displayName){
       socket.current=io(host)
-      socket.current.emit("add-user",currentuser.uid);
+      socket.current.emit("add-user",curruser._id);
       console.log(`${currentuser.displayName} connected`)
       
     //   if (count==0 && currentuser.displayName) {
@@ -64,7 +64,7 @@ export default function Chat() {
     }
   }
   fetchdata()
-  },[currentuser.displayName]);
+  },[curruser]);
   // useEffect(() => {
   //   const fetchData = async () => {
   //     // if (!localStorage.getItem("chat-app-user")) {
