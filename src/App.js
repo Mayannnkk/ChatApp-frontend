@@ -12,13 +12,12 @@ export default function App() {
   return (
     <BrowserRouter>
        <Routes>
-        <Route path="/" element={<Chat />}/>
-        <Route path="/register" element={<Register />}/>
-        <Route path="/login" element={<Login />}/>
+        <Route path="/" element={<Chat curr={currentuser} />}/>
+        <Route path="/register" element={<Register setcurr={setcurrentuser}/>}/>
+        <Route path="/login" element={<Login setcurr={setcurrentuser}/>}/>
         <Route path="/contacts" element={<Contacts/>}/>
         
        </Routes>
        </BrowserRouter>
   ) 
 }
-
