@@ -25,14 +25,19 @@ export default function Logout() {
 
 const Button=styled.button`
 display:flex;
-background:#4f4f52;
+background:#303030;
 border:none;
 font-size:1.1rem;
 border-radius:5rem;
 padding:0.3rem 0.4rem;
-padding-bottom:0.5rem;
+padding-bottom:0.4rem;
 color:white;
 &:hover{
   cursor:pointer;
+  transform:translateY(-0.5px);
+  box-shadow: 0px 1px 1.5px 0px black;
+}
+&:active{
+  transform:translateY(0px);
 }
 `;
