@@ -52,8 +52,8 @@ export default function Chat({ curr }) {
       setcurruser(curr)
     }
   }, [])
-console.log(currentuser);
-  console.log(curruser);
+// console.log(currentuser);
+//   console.log(curruser);
   useEffect(() => {
     async function fetchdata() {
       if (curruser) {
