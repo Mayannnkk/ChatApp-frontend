@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import React from 'react';
 import axios from "axios";
-import { loginroute } from "../utils/APIRoutes";
+import { loginroute, registerRoute } from "../utils/APIRoutes";
 import { Link,useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import {  signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 
-export default function Login() {
+export default function Login({setcurr}) {
 
-    const[errorMsg,setErrorMsg]=useState()
+    const[errorMsg,setErrorMsg]=useState();
+    const [sent, setsent] = useState(false);
     let navigate = useNavigate();
 
     useEffect(()=>{
@@ -33,13 +34,16 @@ export default function Login() {
     const handlesubmit=async(e)=>{
         e.preventDefault();
         const{email,password}=values;
+        setsent(true)
 
         signInWithEmailAndPassword(auth,email,password)
         .then(async(res)=>{
-            console.log(res);
-            navigate('/');
+            // console.log(res);
+                 navigate('/')
+            
         }).catch((err)=>{
-            setErrorMsg(err.message)
+            setsent(false)
+            setErrorMsg(err.message);
         })
         
 
@@ -79,7 +83,7 @@ export default function Login() {
                 <form onSubmit={(e) => handlesubmit(e)}>
                         <input
                             type="text"
-                            placeholder="email"
+                            placeholder="Email"
                             name="email"
                             onChange={(e) => handlechange(e)}
                         />
@@ -90,7 +94,7 @@ export default function Login() {
                             onChange={(e) => handlechange(e)}
                         />
                         <span className="err">{errorMsg}</span>
-                        <button type="submit">Login in</button>
+                        <button type="submit" disabled={sent ? true : false}>Login</button>
                         <span>Don't have an account? <Link to="/register">register</Link></span>
 
                 </form>
@@ -112,9 +116,10 @@ form{
     display:flex;
     align-items:center;
     justify-content:center;
-    background-color:#d7dada;
+    background-color:#42cdaf;
     padding:2.5rem 1rem;
-    max-width:30rem;
+    max-width:17rem;
+    width:17rem;
     flex-direction:column;
     border-radius:2rem;
     gap:1rem;
@@ -137,7 +142,9 @@ form{
         }
     }
     button{
-        background-color:#42cdaf;
+        background-color:#68d7bf;
+        font-size:1rem;
+        box-shadow:0px 0px 5px 0px #3bb99e;
         border:none;
         width:7rem;
         height:2.5rem;
@@ -145,6 +152,13 @@ form{
         color:white;
         &:hover{
             cursor:pointer;
+            box-shadow:0px 0px 7px 0px #3bb99e;
+        }
+        &:disabled{
+            background-color:#35a48c;
+        }
+        &:active{
+            background-color:#35a48c;
         }
     }
     .err{
@@ -160,6 +174,22 @@ form{
         padding:0 1.2rem;
     }
 }
+
+@media screen and (max-width: 700px) {
+  
+    justify-content:center;
+    align-items:center;
+    form{
+        display:flex;
+      height:100vh;
+      width:100vw;
+      max-width:100%;
+    
+     }
+  }
 `
+
+
+
 
 
