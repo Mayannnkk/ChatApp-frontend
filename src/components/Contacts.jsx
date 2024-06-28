@@ -101,7 +101,7 @@ export default function Contacts({ contacts, setcontacts, changechat, setisloade
 
             <Container>
                 <div className="brand">
-                    <h3><b>Let's</b>Chat</h3>
+                    <h3><b>Only</b>Chat</h3>
                 </div>
 
                 <div className='add'>
